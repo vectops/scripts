@@ -1,3 +1,4 @@
+```
 :local dateTime ([ /system clock get date ] . " " . [ / system clock get time ]);
 
 :local cfzoneid ""
@@ -18,3 +19,4 @@
 :if ($ipddns != $ipfresh) do={
    /tool fetch url=$cfurl http-data=$cfDataDNS http-header-field=$cfHeader http-method=put keep-result=no
 }
+```
