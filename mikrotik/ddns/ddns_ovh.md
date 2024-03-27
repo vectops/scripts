@@ -6,11 +6,12 @@
 :local ipddns [:resolve $ovhddnshost]
 :local ipfresh [ /ip address get [/ip address find interface=$theinterface ] address ]
 
-:for i from=( [:len $ipfresh] - 1) to=0 do={ 
-  :if ( [:pick $ipfresh $i] = "/") do={ 
-  :set ipfresh [:pick $ipfresh 0 $i]
-} 
- 
+:for i from=( [:len $ipfresh] - 1) to=0 do={
+    :if ( [:pick $ipfresh $i] = "/") do={
+        :set ipfresh [:pick $ipfresh 0 $i]
+    }
+}
+
 :if ($ipddns != $ipfresh) do={
    :global str "nic/update?system=dyndns&hostname=$ovhddnshost&myip=$ipfresh&wildcard=OFF&backmx=NO&mx=NOCHG"
 
